@@ -1,0 +1,12 @@
+.movies-list{
+  display:flex;
+  flex-flow: row wrap;
+
+}
+.movie-box{
+    width: 400px;
+    margin-left: 45%;
+}
+.header{
+    text-align: center;
+}

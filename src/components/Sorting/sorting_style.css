@@ -1,0 +1,15 @@
+.card{
+    margin:10px 0px 10px 0px;
+}
+
+.sort-box{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+}
+
+.button-sort{
+    margin:5px;
+    width: 100px;
+}

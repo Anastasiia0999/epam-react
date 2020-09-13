@@ -1,0 +1,18 @@
+.movie-box_image{
+    height: 270px;
+    width: 200px;
+}
+
+.movie-box_info{
+    display:flex;
+    flex-direction: row;
+}
+
+.movie-details{
+    text-align: left;
+    color:black;
+}
+
+.description{
+    font-size: 14px;
+}
