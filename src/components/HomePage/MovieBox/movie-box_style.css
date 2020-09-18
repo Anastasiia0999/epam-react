@@ -1,3 +1,12 @@
+.card.card-box{
+    background: #FFF5EE;
+}
+
+.card-header.movie-box_header{
+    background: #FFDAB9;
+    color:black;
+}
+
 .movie-box_image{
     height: 270px;
     width: 200px;

@@ -1,0 +1,43 @@
+.movie{
+    margin:5px;
+}
+.card-header.header{
+    background: #FFDAB9;
+    color:black;
+}
+
+.header:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    background: #DEB887;
+    color:white;
+}
+
+.card.movie{
+    background: #FFF5EE;
+}
+
+.card-image{
+    height: 320px;
+    width: 240px;
+    margin:0 auto;
+}
+.btn.like{
+    margin-top:5px;
+    margin-left:30%;
+    background:#FFDAB9;
+}
+.btn.dislike{
+    margin-top:5px;
+    margin-left:10%;
+    background:#FFDAB9 ;
+}
+
+.btn.dislike:hover{
+    background:	#DEB887 ;
+}
+
+.btn.like:hover{
+    background:	#DEB887 ;
+}
+

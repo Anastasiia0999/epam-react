@@ -1,0 +1,12 @@
+.stars_list{
+    display:flex;
+    flex-direction: row;
+}
+.btn.star{
+    width: 20%;
+    background:#FFDAB9;
+}
+
+.btn.star:hover{
+    background:	#DEB887 ;
+}

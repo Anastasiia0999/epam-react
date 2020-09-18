@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import './libraries/bootstrap/bootstrap.min.css';
 import './libraries/font-awesome-4.7.0/css/font-awesome.css';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -16,3 +17,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+

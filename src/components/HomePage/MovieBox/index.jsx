@@ -1,47 +1,44 @@
-import React, {Component} from 'react';
-import Stars from "../Movie/Stars/Stars";
+import React from 'react';
+import Stars from '../Stars'
 import './movie-box_style.css'
 
-export class MovieBox extends Component{
-    render = () => {
-        const {movieData, handleClick} = this.props;
+const MovieBox = ({id, description, title, likes, posterUrl, stars, director, actors, genres}) =>{
         return (
-            <div className='card' >
-                <div className = 'card-header bg-primary text-light' >
+            <div className='card card-box' >
+                <div className = 'card-header movie-box_header' >
                     <h2>
-                        {movieData.title}
+                        {title}
                     </h2>
                 </div>
                 <div className='card-body'>
                     <div className='movie-box_info'>
                         <div className='col-6'>
-                            <img src={movieData.posterUrl} className="rounded movie-box_image" alt="poster image"></img>
+                            <img src={posterUrl} className="rounded movie-box_image" alt="poster image"></img>
                         </div>
                         <div className = 'col-6 movie-details'>
                             <h6>
-                                Director: {movieData.director}
+                                Director: {director}
                             </h6>
                             <h6>
-                                Actors: {movieData.actors.join(', ')}
+                                Actors: {actors.join(', ')}
                             </h6>
                             <h6>
-                                Genres: {movieData.genres.join(', ')}
+                                Genres: {genres.join(', ')}
                             </h6>
                             <hr/>
-                            <h6 className='likes'>Likes {movieData.likes}</h6>
+                            <h6 className='likes'>Likes {likes}</h6>
                             <hr/>
-                            <Stars id = {movieData.id} stars={movieData.stars} handleClick={handleClick}/>
+                            <Stars id = {id} stars={stars}/>
                         </div>
                     </div>
                     <div className='col-12'>
                         <p className='description' data-spy='scroll'>
-                            <b>Description:</b> {movieData.description}
+                            <b>Description:</b> {description}
                         </p>
                     </div>
                 </div>
             </div>
         )
-    }
 }
 
 export default MovieBox;

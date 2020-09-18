@@ -1,0 +1,9 @@
+.movie-box_info{
+    text-align: center;
+    color:white;
+}
+
+.card.movie-box_info{
+    background: #FFDAB9;
+    color:black;
+}
