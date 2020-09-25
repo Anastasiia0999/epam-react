@@ -1,0 +1,64 @@
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie{
+    margin:5px;
+}
+.card-header.header{
+    background: #dbbd93;
+    color:black;
+    border-radius: 5px;
+}
+
+.header{
+    color:black;
+}
+
+.header:hover{
+    cursor:pointer;
+    background: #b48954;
+    color:white;
+    text-decoration: none;
+}
+
+.card.movie{
+    background: #eeeced;
+}
+
+.card-image{
+    height: 370px;
+    width: 290px;
+    margin:0 auto;
+}
+.btn.like{
+    width: 80px;
+    height: 50px;
+    margin-top:5px;
+    background: #dbbd93;
+}
+.btn.dislike{
+    width: 80px;
+    height: 50px;
+    margin-top:5px;
+    background: #dbbd93;
+}
+
+.btn.dislike:hover{
+    background: #b48954;
+    color:white;
+}
+
+.btn.like:hover{
+    background: #b48954;
+    color:white;
+}
+
+div.buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

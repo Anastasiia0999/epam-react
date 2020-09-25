@@ -1,7 +1,0 @@
-.stars_list{
-    display:flex;
-    flex-direction: row;
-}
-.star{
-    width: 20%;
-}

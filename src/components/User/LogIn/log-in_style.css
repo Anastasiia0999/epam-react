@@ -1,0 +1,28 @@
+form{
+    margin: 0 auto;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 5px;
+    border:1px solid grey;
+    background: #eeeced;
+}
+
+.form-control.text-input{
+    width: 300px;
+}
+
+button.btn{
+    width: 100px;
+    background: #dbbd93;
+    color:black;
+    border:none;
+}
+
+button.btn:hover{
+    background: #b48954;
+    color:white;
+}
+

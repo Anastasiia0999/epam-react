@@ -1,0 +1,17 @@
+.card.card-movie{
+    border: none;
+}
+
+.card-header.main-header{
+    background: #eeeced;
+    color:black;
+    font-size:30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.movies-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
