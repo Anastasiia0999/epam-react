@@ -1,0 +1,27 @@
+.card{
+    margin:10px 0px 10px 0px;
+}
+.card.sorting{
+    background: #eeeced;
+    border:none;
+}
+
+.sort-box{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+    color:black;
+    background: #eeeced;
+}
+
+button.btn.button-sort{
+    margin:5px;
+    width: 100px;
+    background:#DEB887 ;
+}
+
+button.btn.button-sort:hover{
+    background: #b48954;
+    color:white;
+}
