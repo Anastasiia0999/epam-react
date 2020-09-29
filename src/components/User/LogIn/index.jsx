@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
-import { useState } from 'react';
+import { Form, Field } from 'react-final-form'
 import {connect} from "react-redux";
 import {changeStatus, getUsers} from "../redux/actions";
 import {NavLink} from "react-router-dom";
 import PropTypes from 'prop-types';
 import './log-in_style.css';
+import withTranslator from "../../../withTranslator";
 
 class LogIn extends Component{
-
-    login = '';
-    password = '';
 
     state = {
         isVisible: false
@@ -19,36 +17,28 @@ class LogIn extends Component{
         this.props.getUsersDispatch();
     }
 
-    handleSubmit = () => {
-        const user = this.props.users.find(user => user.name === this.login);
-        if( user &&  user.password === this.password){
+    handleSubmit = (values) => {
+        const user = this.props.users.find(user => user.name === values['login']);
+        if( user &&  user.password === values['password']){
             this.props.changeStatusDispatch();
-            alert('Successful pass');
+            alert(`${this.props.fields['alert-success']}`);
             this.props.history.push(`/home`);
         }else{
-            alert('Incorrect login/password');
+            alert(`${this.props.fields['alert-error']}`);
         }
     };
 
-    handlePasswordChange = (ev) => {
-        ev.preventDefault();
-        this.password = ev.target.value;
+    handleCheckout = () =>{
+        this.setState((state) => {
+            return {isVisible: !state.isVisible};
+        });
     };
 
-    handleLoginChange = (ev) => {
-        ev.preventDefault();
-        this.login = ev.target.value;
-    };
 
     render() {
 
-        const {loadingUsers} = this.props;
+        const {loadingUsers, fields} = this.props;
 
-        const handleCheckout = () =>{
-            this.setState((state) => {
-                return {isVisible: !state.isVisible};
-            });
-        };
 
         if(loadingUsers){
             return (
@@ -63,33 +53,53 @@ class LogIn extends Component{
         return (
             <div className='container'>
                 <div className="row">
-                    <form className='col-4 my-5'>
-                        <div className="form-group">
-                            <label htmlFor="login-input main">Login</label>
-                            <input type="text" className="form-control text-input" id="login-input" minLength='8' aria-describedby="loginHelp"
-                                   placeholder="Enter login" onChange={this.handleLoginChange}/>
-                            <small id="loginHelp" className="form-text text-muted">We'll never share your login with anyone
-                                else.</small>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="input-password main">Password</label>
-                            <input type={this.state.isVisible ? 'type': 'password'}
-                                   className="form-control text-input"
-                                   id="input-password"
-                                   minLength='8'
-                                   placeholder="Password"
-                                   onChange={this.handlePasswordChange}/>
-                        </div>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input " id="exampleCheck1" onChange = {handleCheckout}/>
-                            <label className="form-check-label" htmlFor="exampleCheck1" >Check me out</label>
-                        </div>
-                        <button type="submit" className="btn btn-primary my-3" onClick={this.handleSubmit}>Login</button>
-                        <h6>
-                            Don`t have an account?
-                            <NavLink to='/register'> Go to register page</NavLink>
-                        </h6>
-                    </form>
+                    <Form
+                        onSubmit={this.handleSubmit}
+                        render={({ handleSubmit }) => (
+                        <form className='col-4 my-5' onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="login-input main">{fields['logIn-name']} </label>
+                                <Field
+                                    name="login"
+                                    component="input"
+                                    type="text"
+                                    className="form-control text-input"
+                                    id="login-input"
+                                    minLength='8'
+                                    aria-describedby="loginHelp"
+                                    placeholder={fields['logIn-placeholder']}
+                                />
+                                <small id="loginHelp" className="form-text text-muted">{fields['muted-text']}</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="input-password main">{fields['password-name']}</label>
+                                <Field
+                                    name="password"
+                                    component="input"
+                                    type={this.state.isVisible ? 'type': 'password'}
+                                    className="form-control text-input"
+                                    id="input-password"
+                                    placeholder={fields['password-placeholder']}
+                                />
+                            </div>
+                            <div className="form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input "
+                                    id="exampleCheck1"
+                                    onChange = {this.handleCheckout}/>
+                                <label className="form-check-label" htmlFor="exampleCheck1" >{fields['check-box']}</label>
+                            </div>
+                            <button
+                                type="submit"
+                                className="btn btn-primary my-3">{fields['logIn-btn']}</button>
+                            <h6>
+                                {fields['help-text']}
+                                <NavLink to='/register'> {fields['link-text']}</NavLink>
+                            </h6>
+                        </form>
+                        )}
+                    />
                 </div>
             </div>
         )
@@ -111,7 +121,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-export default withConnect(LogIn);
+export default withConnect(withTranslator(LogIn, "logIn-form"));
 
 LogIn.propTypes ={
     users: PropTypes.arrayOf(PropTypes.object),

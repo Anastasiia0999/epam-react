@@ -1,8 +1,7 @@
 import types from "./types";
 
 const initialState = {
-    englishOn: true,
-    ukrOn: false
+    englishOn: true
 }
 
 export const headerReducer = (state = initialState, action) =>{
@@ -10,8 +9,7 @@ export const headerReducer = (state = initialState, action) =>{
         case types.CHANGE_LANG:
             return {
                 ...state,
-                englishOn: !state.englishOn,
-                ukrOn: !state.ukrOn
+                englishOn: !state.englishOn
             };
         default:
             return state;

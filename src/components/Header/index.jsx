@@ -1,7 +1,6 @@
 import React from 'react';
 import withTranslator from "../../withTranslator";
 import {connect} from "react-redux";
-import {compose} from "redux";
 import {changeStatus} from "../User/redux/actions";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -18,13 +17,13 @@ class Header extends React.Component{
     }
 
     render(){
-        const {logStatus, changeStatusDispatch, changeLanguageDispatch, fields, englishOn} = this.props;
+        const {logStatus, fields, englishOn} = this.props;
         return (
             <div className='container'>
                 <div className="row">
                     <ul className='card-header header-main col-12 my-3'>
                         {logStatus ?  <li className = 'link-text' onClick={this.handleLogOut}>{fields['logOut-btn']}</li> : <li><Link className = 'link-text' to='/login'><h6 className='link-text'>{fields['logIn-btn']}</h6></Link></li>}
-                        <li onClick = {this.handleLangChange}>{englishOn ?  'Eng' : 'Ukr'}</li>
+                        <li className="li-lang" onClick = {this.handleLangChange}>Switch to {englishOn ?  'Eng' : 'Ukr'}</li>
                     </ul>
                 </div>
             </div>
@@ -35,7 +34,6 @@ class Header extends React.Component{
 const mapSateToProps = (state) => ({
     logStatus: state.userReducer.logStatus,
     englishOn: state.headerReducer.englishOn,
-    ukrOn: state.headerReducer.ukrOn
 });
 
 const mapDispatchToProps ={
@@ -46,12 +44,14 @@ const mapDispatchToProps ={
 const withConnect = connect(
         mapSateToProps,
         mapDispatchToProps
-    );
+);
 
-export default withConnect(withTranslator(Header));
+export default withConnect(withTranslator(Header, "header"));
 
 Header.propTypes ={
     logStatus: PropTypes.bool,
-    changeStatusDispatch: PropTypes.func.isRequired
+    englishOn: PropTypes.bool,
+    changeStatusDispatch: PropTypes.func.isRequired,
+    changeLanguageDispatch: PropTypes.func.isRequired,
 }
 

@@ -3,15 +3,16 @@ import {connect} from "react-redux";
 import {filterByName} from "../redux/actions";
 import PropTypes from 'prop-types';
 import './filter_style.css';
+import withTranslator from "../../../withTranslator";
 
 
-const Filter  = ({filterByNameDispatch}) =>{
+const Filter  = ({filterByNameDispatch, fields}) =>{
     const filter = (event) => filterByNameDispatch(event.target.value);
         return (
                 <div className="md-form col-12 search-field">
                     <input className="form-control col-5 search-input my-2"
                            type="text"
-                           placeholder="Search by name"
+                           placeholder={fields['placeholder']}
                            aria-label="Search"
                            onChange={filter}>
                     </input>
@@ -28,7 +29,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-export default withConnect(Filter);
+export default withConnect(withTranslator(Filter, "filter"));
 
 Filter.propTypes ={
     filterByNameDispatch: PropTypes.func.isRequired

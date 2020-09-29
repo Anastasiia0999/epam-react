@@ -1,3 +1,7 @@
 .form-control.input-reg{
     width: 300px;
 }
+
+.btn.register{
+    width:140px;
+}

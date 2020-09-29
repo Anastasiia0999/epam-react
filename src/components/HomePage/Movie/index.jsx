@@ -5,11 +5,12 @@ import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Stars from "../../Stars";
 import './movie_style.css';
+import withTranslator from "../../../withTranslator";
 
 class Movie extends Component {
 
     render(){
-        const { movie, likeMovieDispatch, dislikeMovieDispatch} = this.props;
+        const { movie, likeMovieDispatch, dislikeMovieDispatch, fields} = this.props;
         const  likeMovie= () => likeMovieDispatch(movie, 1 );
         const dislikeMovie = () => dislikeMovieDispatch(movie, 0);
 
@@ -41,7 +42,7 @@ class Movie extends Component {
                     <hr/>
                     <Stars movie = {movie} stars={movie.stars}/>
                     <hr/>
-                    <h6 className='likes'>Likes {movie.likes}</h6>
+                    <h6 className='likes'>{fields['likes-name']}: {movie.likes}</h6>
                 </div>
             </div>
         )
@@ -59,7 +60,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-export default withConnect(Movie);
+export default withConnect(withTranslator(Movie, "movie"));
 
 Movie.propTypes ={
     likeMovieDispatch: PropTypes.func.isRequired,

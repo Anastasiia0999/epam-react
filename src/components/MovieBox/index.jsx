@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Stars from '../Stars';
 import './movie-box_style.css';
 import {Link} from "react-router-dom";
+import withTranslator from "../../withTranslator";
 
 
 class MovieBox extends Component{
@@ -33,7 +34,7 @@ class MovieBox extends Component{
     };
 
     render(){
-        const {openedMovie, actors, loadingMovie, loadingActors} = this.props;
+        const {openedMovie, actors, loadingMovie, loadingActors, fields} = this.props;
 
         if(loadingMovie && loadingActors && openedMovie){
             return (
@@ -61,27 +62,27 @@ class MovieBox extends Component{
                                 </div>
                                 <div className = 'movie-details ml-3'>
                                     <h5 key='1'>
-                                        <b>Director:</b> {openedMovie.director}
+                                        <b>{fields['director']}:</b> {openedMovie.director}
                                     </h5>
                                     <div key='2'>
-                                        <b>Actors: </b> {this.setActors(openedMovie, actors)}
+                                        <b>{fields['actors']}: </b> {this.setActors(openedMovie, actors)}
                                     </div>
                                     <h5 key='3'>
-                                        <b>Genres:</b> {openedMovie.genres.join(', ')}
+                                        <b>{fields['genres']}: </b> {openedMovie.genres.join(', ')}
                                     </h5>
                                     <hr/>
-                                    <h5 className='likes' key='4'>Likes {openedMovie.likes}</h5>
+                                    <h5 className='likes' key='4'>{fields['likes-name']} {openedMovie.likes}</h5>
                                     <hr/>
                                     <Stars movie = {openedMovie} stars = {openedMovie.stars}/>
                                 </div>
                             </div>
                             <p className='description' data-spy='scroll'>
-                                <b>Description:</b> {openedMovie.description}
+                                <b>{fields['description']}:</b> {openedMovie.description}
                             </p>
                         </div>
                         <div className="buttons_movie-box">
-                            <button className='btn btn-info m-3' onClick={this.handleEdit}>Edit Movie</button>
-                            <button className='btn btn-danger m-3' onClick={this.handleDelete}>Delete Movie</button>
+                            <button className='btn btn-info m-3' onClick={this.handleEdit}>{fields['edit-btn']}</button>
+                            <button className='btn btn-danger m-3' onClick={this.handleDelete}>{fields['delete-btn']}</button>
                         </div>
                     </div>
                 </div>
@@ -107,8 +108,7 @@ const withConnect = connect(
     mapSateToProps,
     mapDispatchToProps
 );
-
-export default withConnect(MovieBox);
+export default withConnect(withTranslator(MovieBox, "movie-box"));
 
 MovieBox.propTypes ={
     openedMovie: PropTypes.object,

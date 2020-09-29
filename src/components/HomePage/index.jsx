@@ -6,6 +6,7 @@ import Movie from './Movie';
 import Filter from "./Filter";
 import Sorting from "./Sorting";
 import './home-page_style.css'
+import withTranslator from "../../withTranslator";
 
 class HomePage extends Component {
 
@@ -23,7 +24,7 @@ class HomePage extends Component {
 
     render(){
 
-        const {movies, searchMovieName, loadingFlag, loadingStars, loadingLikes} = this.props;
+        const {movies, searchMovieName, loadingFlag, loadingStars, loadingLikes, fields} = this.props;
 
         if(loadingFlag && loadingStars && loadingLikes && movies){
             return (
@@ -41,7 +42,7 @@ class HomePage extends Component {
                     <div className="card card-movie col-12">
                         <div className="card card-movie">
                             <div className="card-header main-header ">
-                                Movies
+                                {fields['title']}
                             </div>
                         </div>
                         <Sorting/>
@@ -75,7 +76,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-export default withConnect(HomePage);
+export default withConnect(withTranslator(HomePage, "home-page"));
 
 HomePage.propTypes = {
     movies: PropTypes.arrayOf(PropTypes.object),

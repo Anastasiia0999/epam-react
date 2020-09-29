@@ -3,8 +3,9 @@ import {connect} from "react-redux";
 import {sortByLikes, sortByRating, resetData} from "../redux/actions";
 import PropTypes from 'prop-types'
 import './sorting_style.css'
+import withTranslator from "../../../withTranslator";
 
-const Sorting = ({sortByLikesDispatch, sortByRatingDispatch, resetDispatch}) =>{
+const Sorting = ({sortByLikesDispatch, sortByRatingDispatch, resetDispatch, fields}) =>{
     const sortByLikes = () => sortByLikesDispatch('likes');
     const sortByStars = () => sortByRatingDispatch('stars');
 
@@ -12,11 +13,11 @@ const Sorting = ({sortByLikesDispatch, sortByRatingDispatch, resetDispatch}) =>{
         <>
             <div className="card sorting col-12">
                 <div className="card-body sort-box">
-                    <h4 >Sort films by</h4>
+                    <h4 >{fields['sorting-title']}</h4>
                     <hr/>
-                    <button type="button" className="btn  button-sort" onClick = {sortByLikes}>likes</button>
-                    <button type="button" className="btn  button-sort" onClick = {sortByStars}>rating</button>
-                    <button type="button" className="btn  button-sort" onClick = {resetDispatch}>reset</button>
+                    <button type="button" className="btn  button-sort" onClick = {sortByLikes}>{fields['likes-btn']}</button>
+                    <button type="button" className="btn  button-sort" onClick = {sortByStars}>{fields['stars-btn']}</button>
+                    <button type="button" className="btn  button-sort" onClick = {resetDispatch}>{fields['reset-btn']}</button>
                 </div>
             </div>
 
@@ -35,7 +36,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-export default withConnect(Sorting);
+export default withConnect(withTranslator(Sorting, "sorting"));
 
 Sorting.propTypes ={
     sortByLikesDispatch: PropTypes.func.isRequired,

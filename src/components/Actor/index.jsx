@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {getActorById} from "./redux/actions";
 import PropTypes from "prop-types";
 import './actor_style.css';
+import withTranslator from "../../withTranslator";
 
 
 class Actor extends Component {
@@ -12,7 +13,7 @@ class Actor extends Component {
     }
 
     render () {
-        const {openedActor, loadingFlag} = this.props;
+        const {openedActor, loadingFlag, fields} = this.props;
 
         if(loadingFlag){
             return (
@@ -30,7 +31,7 @@ class Actor extends Component {
                     <div className='card card-box col-8' >
                         <div className = 'card-header movie-box_header my-3' >
                             <h2>
-                                {openedActor.name}
+                                {fields['actor-name']}: {openedActor.name}
                             </h2>
                         </div>
                         <div className='card-body actor-card'>
@@ -39,7 +40,7 @@ class Actor extends Component {
                             </div>
                             <div className='col-6'>
                                 <p className='biography' data-spy='scroll'>
-                                    <b>Biography:</b> {openedActor.biography}
+                                    <b>{fields['bio']}: </b> {openedActor.biography}
                                 </p>
                             </div>
                         </div>
@@ -64,7 +65,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-export default withConnect(Actor);
+export default withConnect(withTranslator(Actor, "actor"));
 
 Actor.propTypes ={
     openedActor: PropTypes.object,

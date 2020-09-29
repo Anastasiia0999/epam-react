@@ -2,7 +2,7 @@
   "movies": [
     {
       "id": 1,
-      "title": "The Shawshank Redemptoin",
+      "title": "New Post",
       "posterUrl": "https://upload.wikimedia.org/wikipedia/ru/thumb/d/de/Movie_poster_the_shawshank_redemption.jpg/240px-Movie_poster_the_shawshank_redemption.jpg",
       "stars": 2,
       "likes": 22,
@@ -535,6 +535,21 @@
       "name": "New User",
       "password": "123123",
       "id": 5
+    },
+    {
+      "name": "anastasiagordienko99@gmail.com",
+      "password": "12345678",
+      "id": 6
+    },
+    {
+      "name": "anastasiagordienko99@gmail.com",
+      "password": "11111111",
+      "id": 7
+    },
+    {
+      "name": "anastasia",
+      "password": "123123123",
+      "id": 8
     }
   ]
 }
