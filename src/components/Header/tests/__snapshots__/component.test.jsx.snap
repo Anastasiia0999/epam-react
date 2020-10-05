@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render correctly 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><ul class=\\"card-header header-main col-12 my-3\\"><li><a class=\\"link-text\\" href=\\"/login\\"><h6 class=\\"link-text\\">Log In</h6></a></li><li class=\\"li-lang\\">Switch to Eng</li></ul></div></div>"`;

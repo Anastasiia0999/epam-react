@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Actor /> should render correctly 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><div class=\\"card card-box col-8\\"><div class=\\"card-header movie-box_header my-3\\"><h2>Actor: Joseph Gordon-Levitt</h2></div><div class=\\"card-body actor-card\\"><div class=\\"col-6\\"><img src=\\"https://images-na.ssl-images-amazon.com/images/M/MV5BMTQzOTg0NTkzNF5BMl5BanBnXkFtZTcwNTQ4MTcwOQ@@._V1_UY317_CR35,0,214,317_AL_.jpg\\" class=\\"rounded actor-box_image\\" alt=\\"poster\\"></div><div class=\\"col-6\\"><p class=\\"biography\\" data-spy=\\"scroll\\"><b>Biography: </b> Lorem ipsum dolor sit amet</p></div></div></div></div></div>"`;

@@ -1,11 +1,33 @@
-.movie-box_image{
-    height: 270px;
-    width: 200px;
+.card-body.movie-box{
+    padding:0;
+    margin: 0;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.card.card-box{
+    background: #eeeced;
+}
+
+.card-header.movie-box_header{
+    background: #dbbd93;
+    color:black;
 }
 
 .movie-box_info{
     display:flex;
     flex-direction: row;
+    justify-content: center;
+    font-size: 20px;
+}
+.movie-box_image{
+    height: 350px;
+    width: 260px;
+}
+
+.movie-box_img{
+    width: 250px;
 }
 
 .movie-details{
@@ -13,6 +35,28 @@
     color:black;
 }
 
-.description{
-    font-size: 14px;
+p.description{
+    font-size: 18px;
+    width: 600px;
+}
+
+.buttons_movie-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons_movie-box button{
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.link-actor{
+    font-size: 18px;
+    color:black;
+}
+
+.link-actor:hover{
+    font-size: 18px;
+    color:black;
 }

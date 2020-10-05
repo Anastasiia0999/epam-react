@@ -1,0 +1,16 @@
+.card-body.actor-card{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.card.card-box{
+    margin: 0 auto;
+}
+
+.actor-box_image{
+    height: 380px;
+    width: 280px;
+}
+

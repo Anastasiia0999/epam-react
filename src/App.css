@@ -10,3 +10,19 @@
 .header{
     text-align: center;
 }
+
+.footer{
+    height: 70px;
+    position:absolute;
+    bottom:-1000;
+    width: 75%;
+    left:11%;
+    padding:20px;
+    margin:20px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    background: #eeeced;
+    border-radius: 5px;
+}
